@@ -11,6 +11,8 @@ class Main extends PluginBase{
      $this->saveDefaultConfig();
   }
   
+  
+  
   public function transfer($server, Player $p){
     $cfg = $this->getConfig();
     $servers = $cfg->get("Servers");
@@ -19,6 +21,7 @@ class Main extends PluginBase{
     }else{
       $a = array_search($server, $servers);
       if($a !== null){
+        //Check player count (MySql)
         $p->transfer($servers[$server], 19132); //TODO search port by Connector
       }
   }
